@@ -1,25 +1,25 @@
+import React from "react";
 import Image from "next/image";
 import styles from "../page.module.css";
 
-export default function InfoContainer() {
+export default function InfoContainer({ title = "", image = "", desc = "", name = "" }) {
     return (
-        <div className={styles.card}>
+        <div className={name}>
             <p>
-                Title Clima
+                {title}
             </p>
             <div>
                 <Image
                     src="/vercel.svg"
                     alt="Vercel Logo"
-                    className={styles.vercelLogo}
+                    className={image}
                     width={100}
                     height={24}
                     priority
                 />
             </div>
             <div>
-                <p>Text 1</p>
-                <p>Text 2</p>
+                <p>{desc}</p>
             </div>
         </div>
     )

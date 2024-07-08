@@ -1,7 +1,6 @@
 .main {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   min-height: 100vh;
 }
@@ -39,11 +38,27 @@
   font-family: var(--font-mono);
 }
 
+.gridContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.gridContainer p {
+
+}
+
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
+  display: flex;
+  justify-content: space-between;
   max-width: 100%;
   width: var(--max-width);
+  cursor: pointer;
+  padding-bottom: 10em;
+}
+
+.gridWrap {
+  flex-wrap: wrap;
 }
 
 .card {
@@ -52,6 +67,10 @@
   background-color: rgba(var(--callout-rgb), 0.5);
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
+}
+
+.cardWidth {
+  width: 50%;
 }
 
 .card span {
