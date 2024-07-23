@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import styles from "../page.module.css";
 
 export default function InfoContainer({ title = "", image = "", desc = "", name = "" }) {
     return (
@@ -10,11 +9,11 @@ export default function InfoContainer({ title = "", image = "", desc = "", name 
             </p>
             <div>
                 <Image
-                    src="/vercel.svg"
+                    src="/cloud_test.webp"
                     alt="Vercel Logo"
                     className={image}
-                    width={100}
-                    height={24}
+                    width={50}
+                    height={50}
                     priority
                 />
             </div>
