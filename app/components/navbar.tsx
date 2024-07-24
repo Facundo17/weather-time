@@ -1,5 +1,5 @@
 import styles from "../page.module.css";
-import Search from "./search";
+import { Search } from "./search/search";
 
 export default function NavBar() {
   return (
