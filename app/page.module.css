@@ -8,7 +8,6 @@
 .description {
   display: inherit;
   justify-content: inherit;
-  align-items: inherit;
   font-size: 0.85rem;
   max-width: var(--max-width);
   width: 100%;
@@ -17,6 +16,11 @@
   background-color: rgba(var(--callout-rgb), 0.5);
   min-height: inherit;
   max-width: 35%;
+}
+
+.description .wrapper {
+  display: block;
+  padding: 5em;
 }
 
 .description a {
