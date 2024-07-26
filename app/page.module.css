@@ -21,6 +21,13 @@
 .description .wrapper {
   display: block;
   padding: 5em;
+  width: 100%;
+}
+
+.description .footer {
+  position: absolute;
+  left: 2em;
+  bottom: 2em;
 }
 
 .description a {
