@@ -1,9 +1,13 @@
+import { SearchResultPropModel } from "@/app/models/searchResults.model";
 import "./search_result.css";
 
-export const SearchResult = ({ result }: any) => {
+export const SearchResult: React.FC<SearchResultPropModel> = ({
+  result,
+  onClick,
+}) => {
   return (
-    <div className="search-result" onClick={(e) => alert(result.name)}>
-      {result.name}
+    <div className="search-result" onClick={(e) => onClick(result)}>
+      {result.country}, {result.region}, {result.name}
     </div>
   );
 };

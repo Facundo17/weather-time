@@ -3,15 +3,21 @@ import { useState } from "react";
 import styles from "../page.module.css";
 import { SearchResultList } from "./searchresults/search_result_lists";
 import Search from "./search/search";
+import { SearchResultModel } from "../models/searchResults.model";
 
-export default function NavBar({url = ""}) {
+interface NavBarProps {
+  url: string;
+  onSearch: (e: SearchResultModel) => void;
+}
+
+export const NavBar: React.FC<NavBarProps> = ({ url, onSearch }) => {
   const [results, setResults] = useState([]); // almacenar los resultados de búsqueda
 
   return (
     <div className={styles.description}>
       <div className={styles.wrapper}>
         <Search setResults={setResults} url={url} />
-        <SearchResultList results={results} />
+        <SearchResultList results={results} onClick={onSearch} />
       </div>
       <div className={styles.footer}>
         Powered by{" "}
@@ -25,4 +31,4 @@ export default function NavBar({url = ""}) {
       </div>
     </div>
   );
-}
+};

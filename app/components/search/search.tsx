@@ -6,8 +6,7 @@ import { SearchResultModel } from "@/app/models/searchResults.model";
 // no es buena practica dejar los parameters y props como any
 export default function Search({ setResults, url }: any) {
   const [input, setInput] = useState("");
-
-  // usando un API de prueba
+  
   // hace falta hacer un delay en la búsqueda (para no llamar cada vez que se ingresa un caracter)
   const fetchData = (value: string) => {
     // minimo 3 caracteres para que funcione la búsqueda

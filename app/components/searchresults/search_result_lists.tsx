@@ -1,12 +1,18 @@
+import {
+  SearchResultModel,
+  SearchResultsPropModel,
+} from "@/app/models/searchResults.model";
 import { SearchResult } from "../searchresult/search_result";
 import "./search_result_lists.css";
 
-// NO es buena práctica usar any para el tipo
-export const SearchResultList = ({ results }: any) => {
+export const SearchResultList: React.FC<SearchResultsPropModel> = ({
+  results,
+  onClick,
+}) => {
   return (
     <div className="results-list">
-      {results.map((result: any, id: any) => {
-        return <SearchResult result={result} key={id} />;
+      {results.map((result: SearchResultModel, id: number) => {
+        return <SearchResult result={result} onClick={onClick} key={id} />;
       })}
     </div>
   );
