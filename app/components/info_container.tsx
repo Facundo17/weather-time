@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export default function InfoContainer({ title = "", image = "", desc = "", name = "" }) {
+export default function InfoContainer({ title = "", image = "", desc = "", name = "", classN = "" }) {
     return (
         <div className={name}>
             <p>
@@ -9,9 +9,9 @@ export default function InfoContainer({ title = "", image = "", desc = "", name 
             </p>
             <div>
                 <Image
-                    src="/cloud_test.webp"
+                    src={image}
                     alt="Vercel Logo"
-                    className={image}
+                    className={classN}
                     width={50}
                     height={50}
                     priority
