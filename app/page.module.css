@@ -5,6 +5,12 @@
   min-height: 100vh;
 }
 
+.abFooter {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
@@ -56,7 +62,7 @@
   margin: auto;
 }
 
-.gridContainer .card:not(:last-child) {
+.gridContainer .card {
   margin-right: 1em;
 }
 
@@ -86,6 +92,21 @@
   margin-bottom: 1em;
 }
 
+.dayDesc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dayDesc h1 {
+  font-size: 3em !important;
+}
+
+.dayDesc p {
+  font-size: 2em !important;
+  margin-left: 0.5em !important;
+}
+
 .card span {
   display: inline-block;
   transition: transform 200ms;
@@ -101,7 +122,6 @@
   opacity: 0.6;
   font-size: 0.9rem;
   line-height: 1.5;
-  max-width: 30ch;
   text-wrap: balance;
 }
 
@@ -244,10 +264,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .vercelLogo {
-    filter: invert(1);
-  }
-
   .logo {
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
   }

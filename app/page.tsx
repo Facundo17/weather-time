@@ -12,7 +12,6 @@ const requestSearch = "/search.json?";
 const requestForecast = "/forecast.json?";
 
 export default function Home() {
-
   const [searchData, setSearchData] = useState<SearchResultModel>();
 
   const searchResult = (value: SearchResultModel) => {
@@ -27,6 +26,16 @@ export default function Home() {
       <NavBar url={autoSearchURL} onSearch={searchResult} />
       <div className={styles.center}></div>
       <Dashboard url={forecastURL} search={searchData} />
+      <div className={styles.abFooter}>
+        Created by Facundo Saucedo
+        <a
+          href="https://www.weatherapi.com/"
+          title="Free Weather API"
+          target="blank"
+        >
+          WeatherAPI.com
+        </a>
+      </div>
     </main>
   );
 }

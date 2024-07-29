@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { SearchResultModel } from "../models/searchResults.model";
 import styles from "../page.module.css";
-import InfoContainer from "./info_container";
 import { Welcome } from "./welcome/welcome";
 import axios from "axios";
+import { DayModel } from "../models/day.model";
+import { InfoContainer } from "./info_container";
 
 interface SearchData {
   url: string;
@@ -11,36 +12,6 @@ interface SearchData {
 }
 
 export const Dashboard: React.FC<SearchData> = ({ url, search }) => {
-  // Objeto de pruebas. Reemplazar después con el API
-
-  const testRow = [
-    {
-      title: "Tomorrow",
-      image: styles.vercelLogo,
-      desc: "16° 11°C",
-    },
-    {
-      title: "Tomorrow",
-      image: styles.vercelLogo,
-      desc: "16° 11°C",
-    },
-    {
-      title: "Tomorrow",
-      image: styles.vercelLogo,
-      desc: "16° 11°C",
-    },
-    {
-      title: "Tomorrow",
-      image: styles.vercelLogo,
-      desc: "16° 11°C",
-    },
-    {
-      title: "Tomorrow",
-      image: styles.vercelLogo,
-      desc: "16° 11°C",
-    },
-  ];
-
   useEffect(() => {
     if (search) {
       fetchData(search);
@@ -48,12 +19,14 @@ export const Dashboard: React.FC<SearchData> = ({ url, search }) => {
   }, [search]);
 
   const [foreCastDays, setForeCastDays] = useState<any[]>([]);
+  const [currentDay, setCurrentDay] = useState<DayModel>();
 
   const fetchData = async (search: SearchResultModel) => {
     let foreCastUrl = url + "&q=" + search.lat + "," + search.lon + "&days=5";
     const result = await axios.get(foreCastUrl);
     console.log(result);
     setForeCastDays(result.data.forecast.forecastday);
+    setCurrentDay(result.data.current);
   };
 
   return search && foreCastDays && foreCastDays.length > 0 ? (
@@ -68,6 +41,7 @@ export const Dashboard: React.FC<SearchData> = ({ url, search }) => {
               desc={el.day.condition.text}
               name={styles.card}
               classN={styles.vercelLogo}
+              large={false}
             />
           );
         })}
@@ -76,18 +50,43 @@ export const Dashboard: React.FC<SearchData> = ({ url, search }) => {
       <p>Today's Hightlights</p>
 
       <div className={styles.grid + " " + styles.gridWrap}>
-        {testRow.map((el, index) => {
-          return (
-            <InfoContainer
-              key={index}
-              title={el.title}
-              image={"/cloud_test.webp"}
-              desc={el.desc}
-              name={styles.card + " " + styles.cardWidth}
-              classN={styles.vercelLogo}
-            />
-          );
-        })}
+        <InfoContainer
+          title={"Wind Status"}
+          image=""
+          desc={currentDay?.wind_mph.toString()}
+          sub={"mph"}
+          name={styles.card + " " + styles.cardWidth}
+          classN={styles.dayDesc}
+          large={true}
+        />
+        <InfoContainer
+          title={"Humidity"}
+          image=""
+          desc={currentDay?.humidity.toString()}
+          sub={"%"}
+          degrees={currentDay?.humidity}
+          name={styles.card + " " + styles.cardWidth}
+          classN={styles.dayDesc}
+          large={true}
+        />
+        <InfoContainer
+          title={"Visibility"}
+          image=""
+          desc={currentDay?.vis_miles.toString()}
+          sub={"miles"}
+          name={styles.card + " " + styles.cardWidth}
+          classN={styles.dayDesc}
+          large={true}
+        />
+        <InfoContainer
+          title={"Air Pressure"}
+          image=""
+          desc={currentDay?.pressure_mb.toString()}
+          sub={"mb"}
+          name={styles.card + " " + styles.cardWidth}
+          classN={styles.dayDesc}
+          large={true}
+        />
       </div>
     </div>
   ) : (
