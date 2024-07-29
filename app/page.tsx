@@ -5,7 +5,7 @@ import { NavBar } from "./components/navbar";
 import { SearchResultModel } from "./models/searchResults.model";
 import { Dashboard } from "./components/dashboard";
 
-const urlBase = "http://api.weatherapi.com/v1";
+const urlBase = "https://api.weatherapi.com/v1";
 const apiKEY = "key=9826998231e740f591d135016242607";
 
 const requestSearch = "/search.json?";
