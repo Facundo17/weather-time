@@ -4,6 +4,7 @@ import { useState } from "react";
 import { NavBar } from "./components/navbar";
 import { SearchResultModel } from "./models/searchResults.model";
 import { Dashboard } from "./components/dashboard";
+import { Spinner } from "./components/spinner/spinner";
 
 const urlBase = "https://api.weatherapi.com/v1";
 const apiKEY = "key=9826998231e740f591d135016242607";
@@ -35,6 +36,7 @@ export default function Home() {
           Linkedin
         </a>
       </div>
+      <Spinner />
     </main>
   );
 }
