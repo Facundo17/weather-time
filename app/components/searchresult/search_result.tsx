@@ -7,7 +7,9 @@ export const SearchResult: React.FC<SearchResultPropModel> = ({
 }) => {
   return (
     <div className="search-result" onClick={(e) => onClick(result)}>
-      {result.country}, {result.region}, {result.name}
+      <p>
+        {result.name}, {result.region}
+      </p>
     </div>
   );
 };

@@ -27,13 +27,12 @@ export default function Home() {
       <div className={styles.center}></div>
       <Dashboard url={forecastURL} search={searchData} />
       <div className={styles.abFooter}>
-        Created by Facundo Saucedo
+        Created by Facundo Saucedo<span> | </span>
         <a
-          href="https://www.weatherapi.com/"
-          title="Free Weather API"
+          href="https://www.linkedin.com/in/facundo-saucedo-318b8a213/"
           target="blank"
         >
-          WeatherAPI.com
+          Linkedin
         </a>
       </div>
     </main>

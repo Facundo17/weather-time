@@ -1,0 +1,8 @@
+.welcome {
+    width: 100%;
+    text-align: center;
+}
+
+.welcome h1 {
+    font-size: 5em;
+}

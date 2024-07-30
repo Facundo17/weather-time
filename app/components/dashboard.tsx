@@ -23,10 +23,16 @@ export const Dashboard: React.FC<SearchData> = ({ url, search }) => {
 
   const fetchData = async (search: SearchResultModel) => {
     let foreCastUrl = url + "&q=" + search.lat + "," + search.lon + "&days=5";
-    const result = await axios.get(foreCastUrl);
-    console.log(result);
-    setForeCastDays(result.data.forecast.forecastday);
-    setCurrentDay(result.data.current);
+
+    try {
+      const result = await axios.get(foreCastUrl);
+
+      if (result.status === 200 && result.data) {
+        console.log(result);
+        setForeCastDays(result.data.forecast.forecastday);
+        setCurrentDay(result.data.current);
+      }
+    } catch (error) {}
   };
 
   return search && foreCastDays && foreCastDays.length > 0 ? (

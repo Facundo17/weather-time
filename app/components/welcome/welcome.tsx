@@ -1,5 +1,11 @@
+import "./welcome.css";
+
 export const Welcome = () => {
   return (
-    <div>Welcome!</div>
+    <div className="welcome">
+      <h1>Welcome</h1>
+      <br/>
+      <p>Use the search bar to find a location</p>
+    </div>
   )
 }
