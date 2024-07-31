@@ -5,18 +5,22 @@ import { Welcome } from "./welcome/welcome";
 import axios from "axios";
 import { DayModel } from "../models/day.model";
 import { InfoContainer } from "./info_container";
+import Skeleton from "./skeleton/skeleton";
 
-interface SearchData {
+type SearchData = {
   url: string;
   search?: SearchResultModel;
-}
+};
 
 export const Dashboard: React.FC<SearchData> = ({ url, search }) => {
   useEffect(() => {
     if (search) {
       fetchData(search);
     }
-  }, [search]);
+  }, [search?.lat]);
+
+  const firstSkeletor = 5;
+  const secondSkeletor = 4;
 
   const [foreCastDays, setForeCastDays] = useState<any[]>([]);
   const [currentDay, setCurrentDay] = useState<DayModel>();
@@ -96,6 +100,6 @@ export const Dashboard: React.FC<SearchData> = ({ url, search }) => {
       </div>
     </div>
   ) : (
-    <Welcome />
+    <Skeleton />
   );
 };

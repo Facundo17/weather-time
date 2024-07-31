@@ -5,10 +5,10 @@ import { SearchResultList } from "./searchresults/search_result_lists";
 import Search from "./search/search";
 import { SearchResultModel } from "../models/searchResults.model";
 
-interface NavBarProps {
+type NavBarProps = {
   url: string;
   onSearch: (e: SearchResultModel) => void;
-}
+};
 
 export const NavBar: React.FC<NavBarProps> = ({ url, onSearch }) => {
   const [results, setResults] = useState([]); // almacenar los resultados de búsqueda
