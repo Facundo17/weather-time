@@ -14,6 +14,7 @@ const requestForecast = "/forecast.json?";
 
 export default function Home() {
   const [searchData, setSearchData] = useState<SearchResultModel>();
+  const [loader, setLoader] = useState(true);
 
   const searchResult = (value: SearchResultModel) => {
     setSearchData(value);
@@ -22,7 +23,17 @@ export default function Home() {
   const autoSearchURL = urlBase + requestSearch + apiKEY;
   const forecastURL = urlBase + requestForecast + apiKEY;
 
-  return (
+  function testTime() {
+    setTimeout(() => {
+      setLoader(false);
+    }, 3000);
+  }
+
+  testTime();
+
+  return loader ? (
+    <Spinner />
+  ) : (
     <main className={styles.main}>
       <NavBar url={autoSearchURL} onSearch={searchResult} />
       <div className={styles.center}></div>
@@ -36,7 +47,6 @@ export default function Home() {
           Linkedin
         </a>
       </div>
-      <Spinner />
     </main>
   );
 }
