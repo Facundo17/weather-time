@@ -85,6 +85,7 @@
   background-color: rgba(var(--callout-rgb), 0.5);
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
+  justify-content: center;
 }
 
 .cardWidth {

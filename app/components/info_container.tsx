@@ -35,7 +35,7 @@ export const InfoContainer: React.FC<InfoProps> = ({
   ) : (
     <div className={name}>
       <p>{title}</p>
-      <div>
+      <div className="flex justify-center">
         <Image
           src={image}
           alt="Vercel Logo"

@@ -3,6 +3,8 @@
     display: flex;
     align-items: center;
     height: 5em;
+    font-weight: 800;
+    font-size: 1.3em;
 }
 
 .search-result:hover {
