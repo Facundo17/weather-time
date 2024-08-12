@@ -2,6 +2,8 @@ import styles from "../../page.module.css";
 import { InfoContainer } from "../info_container";
 import { DayModel } from "@/app/models/day.model";
 import Skeleton from "../skeleton/skeleton";
+import TButton from "../tbutton/tbutton";
+import { useState } from "react";
 
 type ForecastProps = {
   foreCastDays: any[];
@@ -14,10 +16,28 @@ export default function Forecast({
   currentDay,
   loading,
 }: ForecastProps) {
+  const [celsius, setCelsius] = useState("°C");
+
+  function switchButton(value: string) {
+    setCelsius(value);
+  }
+
   return loading ? (
     <Skeleton />
   ) : (
     <div className={styles.gridContainer}>
+      <div className={styles.buttonContainer}>
+        <TButton
+          name="°C"
+          onClick={switchButton}
+          active={celsius == "°C" ? true : false}
+        ></TButton>
+        <TButton
+          name="°F"
+          onClick={switchButton}
+          active={celsius == "°F" ? true : false}
+        ></TButton>
+      </div>
       <div className={styles.grid}>
         {foreCastDays.map((el: any, index: number) => {
           return (
@@ -25,10 +45,11 @@ export default function Forecast({
               key={index}
               title={el.date}
               image={"https:" + el.day.condition.icon}
-              desc={el.day.condition.text}
+              day={el.day}
               name={styles.card}
               classN={styles.vercelLogo}
               large={false}
+              celsius={celsius}
             />
           );
         })}

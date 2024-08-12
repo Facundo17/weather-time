@@ -55,6 +55,20 @@
   font-family: var(--font-mono);
 }
 
+.buttonContainer {
+  display: flex;
+  width: 100%;
+  font-size: 1.5em;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.buttonContainer button {
+  width: 2em;
+  height: 2em;
+  border-radius: 48px;
+}
+
 .gridContainer {
   display: flex;
   flex-direction: column;
@@ -68,7 +82,7 @@
 
 .grid {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   max-width: 100%;
   cursor: pointer;
   padding: 3em 0 3em 0;

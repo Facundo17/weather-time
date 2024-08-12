@@ -2,26 +2,43 @@ import React from "react";
 import Image from "next/image";
 import { ProgressBar } from "./progress/progress";
 
+type DayForecast = {
+  maxtemp_c: number;
+  maxtemp_f: number;
+  mintemp_c: number;
+  mintemp_f: number;
+  condition: ConditionForecast;
+};
+
+type ConditionForecast = {
+  code: number;
+  icon: string;
+  text: string;
+};
 interface InfoProps {
   title: string;
   image: string;
-  desc?: string;
   sub?: string;
   degrees?: number;
+  desc?: string;
   name: string;
   classN: string;
   large: boolean;
+  day?: DayForecast;
+  celsius?: string;
 }
 
 export const InfoContainer: React.FC<InfoProps> = ({
   title,
   image,
-  desc,
   sub,
   degrees,
+  desc,
   name,
   classN,
   large,
+  day,
+  celsius,
 }) => {
   return large ? (
     <div className={name}>
@@ -45,8 +62,19 @@ export const InfoContainer: React.FC<InfoProps> = ({
           priority
         />
       </div>
-      <div>
-        <p>{desc}</p>
+      <div className="w-40">{day?.condition.text}</div>
+      <div className="flex justify-around mt-2">
+        {celsius === "°C" ? (
+          <>
+            <div>{day?.maxtemp_c}°C</div>
+            <div>{day?.mintemp_c}°C</div>
+          </>
+        ) : (
+          <>
+            <div>{day?.maxtemp_f}°F</div>
+            <div>{day?.mintemp_f}°F</div>
+          </>
+        )}
       </div>
     </div>
   );
