@@ -8,6 +8,7 @@
 }
 
 .search-result:hover {
-    box-shadow: 0px 0px 2px #ddd;
+    background-color: #ddd;
+    color: rgb(var(--foreground-rgb));
     cursor: pointer;
 }

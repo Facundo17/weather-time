@@ -1,8 +1,7 @@
 .results-list {
     width: 100%;
-    background-color: transparent;
     color: rgb(var(--foreground-rgb));
-    padding: 0.2em;
+    background-color: rgb(var(--card-rgb));
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
